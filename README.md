@@ -1,2 +1,1 @@
-# go-theses-22-Katla-Taylor
- 
+# (not a boilerplate anymore)
