@@ -123,14 +123,14 @@ img:hover {
 
 
 a {
-  font-family: 'AustinL';
+  font-family: 'G2M';
   color: var(--color-text-link);
   text-decoration:none;
   text-align: center;
   border: 2px dotted;
-  border-radius: 10em;
-  margin: 20px;
-  padding: 5px;
+  border-radius: 20px;
+  margin: 3%;
+  padding: 0%;
 }
 
 a:hover {
@@ -153,8 +153,8 @@ h1{
 h3{
   font-family: 'G2M';
   color: var(--color-text-link);
-  font-size:3.1rem;
-  margin-top: -7vh;
+  font-size:4.3rem;
+  margin-top: -12vh;
 
 }
 
@@ -188,9 +188,9 @@ h2 .tlt{
 /* Body text */
 
 p{
-  font-family: 'AustinL';
-  font-size:0.9rem;
-  line-height:125%;
+  font-family: 'G2M';
+  font-size:0.75rem;
+  line-height:106%;
 }
 
 
@@ -236,7 +236,7 @@ header{
 
 header h1{
   display:block;
-  font-size:7vw;
+  font-size:5vw;
   line-height:100%;
   font-weight: normal;
   width:100%;
