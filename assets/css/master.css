@@ -37,43 +37,33 @@
     font-display: block;
 }
 
-
 @font-face {
-    font-family: 'Pica';
-    src: url('../fonts/yourfontname/pica.otf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
-
-@font-face {
-    font-family: 'AustinL';
-    src: url('../fonts/yourfontname/Austin.otf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
-
-@font-face {
-    font-family: 'AustinL';
-    src: url('../fonts/yourfontname/AustinText-Italic.otf');
+    font-family: 'G2M';
+    src: url('../fonts/yourfontname/G2-TGR-RegularItalic.otf');
     font-weight: normal;
     font-style: italic;
     font-display: block;
 }
 
+@font-face {
+    font-family: 'G2MB';
+    src: url('../fonts/yourfontname/G2TGR-Bold.ttf');
+    font-weight: bold;
+    font-style: italic;
+    font-display: block;
+}
 
 
 /* VARIABLES */
 
 :root {
   /* Color settings */
-  --color-background: rgba(212, 205, 200, 0.17);
-  --color-text: gray;
+  --color-background: rgba(226, 226, 226, 1);
+  --color-text: rgb(92, 92, 92);
   --color-text-link: rgba(31, 19, 255, 0.4);
-  --color-text-link-hover: rgba(0,0,0,0.2);
+  --color-text-link-hover: rgba(226, 226, 226, 1);
   /* Font settings */
-  --font-family: 'Dutch801 Rm BT Roman', serif;
+  --font-family: 'G2', sans-serif;
   --font-size: 24px;
   /* Margins settings */
   --margin: 1rem;
@@ -87,6 +77,7 @@ html {
   font: var(--font-size) var(--font-family);
   color: var(--color-text);
   background-color: var(--color-background);
+
 }
 
 body {
@@ -97,6 +88,7 @@ body {
   width:100%;
   height:100%;
   overflow-y:auto;
+  z-index: -3;
 }
 
 
@@ -109,12 +101,14 @@ img{
   margin-left: auto;
   margin-right: auto;
   transition: all .8s ease-in-out;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
 img:hover {
     transform: scale(3.3);
     transition: all .8s ease-in-out;
-    opacity: 0.6;
+
   }
 
 
@@ -124,17 +118,16 @@ img:hover {
 
 a {
   font-family: 'G2M';
-  color: var(--color-text-link);
+  color: var(--color-background);
   text-decoration:none;
   text-align: center;
-  border: 2px dotted;
   border-radius: 20px;
   margin: 3%;
   padding: 0%;
 }
 
 a:hover {
-  color: var(--color-text-link-hover);
+  color: var(--color-background);
 }
 
 a:focus-visible {
@@ -142,6 +135,9 @@ a:focus-visible {
   text-decoration: none;
 }
 
+a b{
+  font-family: 'G2MB';
+}
 
 
 /* Big title */
@@ -190,7 +186,7 @@ h2 .tlt{
 p{
   font-family: 'G2M';
   font-size:0.75rem;
-  line-height:106%;
+  line-height:135%;
 }
 
 
@@ -202,7 +198,9 @@ ol, ul{
 }
 
 blockquote{
-  /* blockquote element style */
+  font-family: 'G2MI';
+  font-size:0.75rem;
+  line-height:135%;
 }
 
 hr {
@@ -217,7 +215,42 @@ p1 {
   font-size:0.8rem;
 }
 
+.progress-wrap {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  top: 0;
+  left:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+.progress-container {
+	position: absolute;
+  height: 750px;
+  width: 600px;
+  display: flex;
+  flex-direction: column-reverse;
+}
 
+.progress-bar {
+  background-color: var(--color-text-link);
+  height: 0%;/
+  background-position: center;
+}
+
+.progress-image {
+  background-image: url('../../content/images/flowerback.png');
+  background-size: cover;
+  position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%,-50%);
+  height: 100%;
+  width: 100%;
+  background-position: center;
+}
 
 /* PAGE STYLES */
 
@@ -265,7 +298,7 @@ nav{
 }
 
 nav ol, nav ul{
-  font-size:1.5rem;
+  font-size:1.2rem;
   padding-left:0;
 }
 
@@ -276,8 +309,10 @@ nav ol li, nav ul li{
 
 nav ol li a, nav ul li a{
   color:var(--color-text-link-hover);
-  text-decoration-style:dashed;
-  padding-left:0;
+  background-color: var(--color-text-link);
+  display: inline-block;
+  margin: 0.5vh;
+  padding: 0.9vh;
 }
 
 nav ol li a:hover, nav ul li a:hover{
@@ -306,18 +341,26 @@ footer{
 /* captions */
 .sidenote,
 .marginnote {
+/*
+    position: relative;
     float: right;
     clear: right;
     margin-right: -45%;
     width: 40%;
     margin-top: 0.3rem;
     margin-bottom: 0;
+ */
+	 position: absolute;
+	 right: 0;
+	 width: 25%;
+	 padding: 0 1em 1em;
     font-size: 0.45rem;
     line-height: 1.3;
     vertical-align: baseline;
-    position: relative;
     font-family: 'G2M';
       counter-increment: footnote-counter 1;
+/*       background: red; */
+      box-sizing: border-box;
 }
 
 ...
@@ -332,7 +375,8 @@ label.margin-toggle:not(.sidenote-number) {
     display: none;
 }
 .footnote-anchor {
-  font-style: italic
+  font-style: italic;
+  display:inline-flex;
 }
 .footnote-anchor:after {
     margin-left: 0.4em;
@@ -344,6 +388,21 @@ label.margin-toggle:not(.sidenote-number) {
     display: inline-block;
 }
 
+.image-sidenote{
+  font-family: 'G2M';
+  position: static;
+  float: initial;
+  clear: initial;
+  margin-right: 0;
+  width: auto;
+  font-size: 0.5rem;
+  line-height:100%;
+  background-color: rgb(170, 170, 170);
+  color: white;
+  padding: 0.2em;
+
+}
+
 
 ...
 /* The mobile fallback: */
@@ -351,6 +410,7 @@ label.margin-toggle:not(.sidenote-number) {
     .sidenote,
         .marginnote {
             display: none;
+
         }
         .margin-toggle:checked + .sidenote,
         .margin-toggle:checked + .marginnote {
@@ -362,6 +422,8 @@ label.margin-toggle:not(.sidenote-number) {
             margin: 1rem 2.5%;
             vertical-align: baseline;
             position: relative;
+            font-size: 1em;
+
         }
 }
 
@@ -473,6 +535,21 @@ label.margin-toggle:not(.sidenote-number) {
     padding-left:0%;
     padding-right:0%;
   }
+
+  .sidenote{
+	  position: static;
+    float: initial;
+    clear: initial;
+    margin-right: 0;
+    width: auto;
+    font-size: 0.5rem;
+    line-height:100%;
+    background-color: rgb(170, 170, 170);
+    color: white;
+    padding: 0.2em;
+
+  }
+  .sidenote br { display: none }
 
   /* utilities */
 

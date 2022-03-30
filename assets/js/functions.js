@@ -1,4 +1,4 @@
-$(function () {
+ $(function () {
 	//$('.tlt').textillate();
 
 	$('.tlt').textillate({
@@ -37,5 +37,18 @@ $(function () {
     callback: function () {}
   },
   });
+
+
+	function progressBarScroll() {
+  let winScroll = document.body.scrollTop || document.documentElement.scrollTop,
+		      height = document.documentElement.scrollHeight - document.documentElement.clientHeight,
+	      scrolled = (winScroll / height) * 100;
+	  document.getElementById("progressBar").style.height = scrolled + "%";
+	}
+
+	window.onscroll = function () {
+		console.log('scroll')
+	  progressBarScroll();
+	};
 
 })
